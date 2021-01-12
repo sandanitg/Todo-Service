@@ -1,0 +1,28 @@
+TodoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: TodoTable-${self:provider.stage}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          # - AttributeName: user
+          #   AttributeType: S
+          # - AttributeName: status
+          #   AttributeType: S
+          # - AttributeName: createdAt
+          #   AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          # - AttributeName: user
+          #   KeyType: RANGE
+        # GlobalSecondaryIndexes:
+        #   - IndexName: idANDuser
+        #     KeySchema:
+        #       - AttributeName: id
+        #         KeyType: HASH
+        #       - AttributeName: user
+        #         KeyType: RANGE
+        #     Projection:
+        #       ProjectionType: ALL
